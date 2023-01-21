@@ -4,7 +4,7 @@
 <p>Cette application permet la saisie de donnée de la présence de chaque participant aux activités de Simplon Côte D'Ivoire</p>
 
 ## Réalisation de l'application
-<p>L'application web a été réalisée avec ces technologie suivantes:</p>
+<p>L'application web a été réalisée avec ces technologies suivantes:</p>
 
 
 * [nodejs](https://nodejs.org/en/)

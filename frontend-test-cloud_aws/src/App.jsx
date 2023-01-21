@@ -1,21 +1,22 @@
-function App() {
+import { NavBar } from './components/Navbar'
+import { Routes, Route } from 'react-router-dom'
+import { RegisterForm } from './pages/RegisterForm'
+import { ListOfParticipant } from './pages/ListOfParticipant'
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <h1
-        style={{
-          fontSize: '3rem',
-          color: '#333',
-        }}
-      >
-        AWS TEST FRONTEND
-      </h1>
+    <div className="app">
+      <NavBar />
+      <Routes>
+        <Route
+          path="/"
+          element={<RegisterForm />}
+        />
+        <Route
+          path="/list"
+          element={<ListOfParticipant />}
+        />
+      </Routes>
     </div>
   )
 }
