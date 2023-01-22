@@ -1,4 +1,6 @@
 import { getHourOfArrival } from '../utils/getHour'
+import { IoDocumentText } from 'react-icons/io5'
+import * as XLSX from 'xlsx'
 
 export const ListOfParticipant = ({ listOfParticipants }) => {
   const headerStyle = {
@@ -20,9 +22,26 @@ export const ListOfParticipant = ({ listOfParticipants }) => {
     alignItems: 'center',
   }
 
+  const downloadExcel = data => {
+    const worksheet = XLSX.utils.json_to_sheet(data)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1')
+    //let buffer = XLSX.write(workbook, { bookType: "xlsx", type: "buffer" });
+    //XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+    XLSX.writeFile(workbook, 'DataSheet.xlsx')
+  }
+
   return (
     <div style={containerStyle}>
       <h1 style={headerStyle}>Liste de présence</h1>
+      <button className="excel-btn">
+        <IoDocumentText
+          size={30}
+          style={{ paddingRight: '0.4rem' }}
+          onClick={() => downloadExcel(listOfParticipants)}
+        />
+        Exporter le fichier Excel
+      </button>
       <table className="participants-table">
         <thead>
           <tr>
