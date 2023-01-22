@@ -7,7 +7,11 @@ import participantService from './services/participants'
 
 const App = () => {
   const [participants, setParticipants] = useState([])
-  console.log('participants', participants)
+  const [notificationMsg, setNotificationMsg] = useState({
+    message: null,
+    type: 'error',
+  })
+
   const fetchParticipants = async () => {
     try {
       const AllParticipants = await participantService.getAll()
@@ -27,9 +31,25 @@ const App = () => {
         newParticipant
       )
       setParticipants(participants.concat(returnedParticipants))
-      console.log('participants', participants)
-    } catch (error) {
-      console.error(error)
+      setNotificationMsg({
+        message: `Mr/Mme ${newParticipant.firstname} ${newParticipant.lastname} a été enregistré avec succès!`,
+        type: 'success',
+      })
+      setTimeout(() => {
+        setNotificationMsg({
+          message: null,
+        })
+      }, 5000)
+    } catch (exeption) {
+      setNotificationMsg({
+        message: "Une erreur s'est produite lors de l'enregistrement",
+        type: 'error',
+      })
+      setTimeout(() => {
+        setNotificationMsg({
+          message: null,
+        })
+      }, 5000)
     }
   }
 
@@ -39,10 +59,16 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<RegisterForm addParticipants={addParticipants} />}
+          element={
+            <RegisterForm
+              addParticipants={addParticipants}
+              message={notificationMsg.message}
+              type={notificationMsg.type}
+            />
+          }
         />
         <Route
-          path="/list"
+          path="/lists"
           element={<ListOfParticipant listOfParticipants={participants} />}
         />
       </Routes>

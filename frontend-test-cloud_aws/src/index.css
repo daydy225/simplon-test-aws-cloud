@@ -114,7 +114,7 @@ form {
 
 .form-btn:hover {
   outline: 2px solid #fff;
-  outline-offset: -4px;
+  outline-offset: -6px;
 }
 
 .participants-table {
@@ -147,6 +147,31 @@ form {
   outline: 2px solid #fff;
 }
 
+.error {
+  display: flex;
+  align-items: center;
+  background-color: #ce0033;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.success {
+  display: flex;
+  align-items: center;
+  background-color: rgb(2, 92, 2);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
 /* ====== MEDIA QUERIES ====== */
 
 @media (max-width: 768px) {
@@ -156,6 +181,7 @@ form {
   .logo {
     height: 50px;
     margin-left: 0.5rem;
+    cursor: pointer;
   }
 
   .navbar {

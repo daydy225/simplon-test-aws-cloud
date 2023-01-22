@@ -1,5 +1,6 @@
 import { useState } from 'react'
-export const RegisterForm = ({ addParticipants }) => {
+import { Notification } from '../components/Notification'
+export const RegisterForm = ({ addParticipants, message, type }) => {
   const [newParticipants, setNewParticipants] = useState({
     lastname: '',
     firstname: '',
@@ -28,7 +29,6 @@ export const RegisterForm = ({ addParticipants }) => {
 
   const registerParticipant = event => {
     event.preventDefault()
-    console.log('newParticipants', newParticipants)
     addParticipants({
       ...newParticipants,
     })
@@ -37,14 +37,17 @@ export const RegisterForm = ({ addParticipants }) => {
       firstname: '',
       phone: '',
       email: '',
-      arrivedAt: '',
     })
     // window.location.href = '/list'
   }
 
   return (
     <div style={registerStyle}>
-      <h1 style={headerStyle}>S'enregister sur la liste présence</h1>
+      <h1 style={headerStyle}>S'enregister sur la liste de présence</h1>
+      <Notification
+        message={message}
+        type={type}
+      />
       <form onSubmit={registerParticipant}>
         <div className="form-input">
           <label htmlFor="lastname">Nom</label>

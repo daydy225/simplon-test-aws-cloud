@@ -47,16 +47,6 @@ export const ListOfParticipant = ({ listOfParticipants }) => {
             </tbody>
           )
         })}
-
-        {/* <tbody>
-          <tr>
-            <td>dddd</td>
-            <td>dddd</td>
-            <td>ddddd</td>
-            <td>ddddd</td>
-            <td>ddddd</td>
-          </tr>
-        </tbody> */}
       </table>
     </div>
   )

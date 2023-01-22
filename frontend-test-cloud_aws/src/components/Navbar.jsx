@@ -1,13 +1,15 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 export const NavBar = () => {
   return (
     <nav className="navbar">
       <div>
-        <img
-          src="./simplon_logo.png"
-          alt="logo Simplon"
-          className="logo"
-        />
+        <Link to="/">
+          <img
+            src="./simplon_logo.png"
+            alt="logo Simplon"
+            className="logo"
+          />
+        </Link>
       </div>
 
       <ul className="nav_list">
@@ -22,15 +24,13 @@ export const NavBar = () => {
         </li>
         <li>
           <NavLink
-            to="/list"
+            to="/lists"
             className="nav_list--item"
             as={NavLink}
           >
             Liste de présence
           </NavLink>
         </li>
-        {/* <li className="nav_list--item">S'enregister</li>
-        <li>Liste de présence</li> */}
       </ul>
     </nav>
   )
