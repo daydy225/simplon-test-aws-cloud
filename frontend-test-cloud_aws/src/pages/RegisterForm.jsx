@@ -1,12 +1,10 @@
 import { useState } from 'react'
-
-export const RegisterForm = () => {
-  const [particitants, setParticipants] = useState({
+export const RegisterForm = ({ addParticipants }) => {
+  const [newParticipants, setNewParticipants] = useState({
     lastname: '',
     firstname: '',
     phone: '',
     email: '',
-    arrivedAt: new Date(),
   })
 
   const registerStyle = {
@@ -15,7 +13,7 @@ export const RegisterForm = () => {
     flexDirection: 'column',
     justifyContent: 'center',
     color: '#000',
-    paddingTop: ' 20px',
+    paddingTop: ' 1rem',
   }
 
   const headerStyle = {
@@ -28,24 +26,35 @@ export const RegisterForm = () => {
     border: '3px solid #000',
   }
 
-  const handleSubmit = event => {
+  const registerParticipant = event => {
     event.preventDefault()
-    console.log(particitants)
+    console.log('newParticipants', newParticipants)
+    addParticipants({
+      ...newParticipants,
+    })
+    setNewParticipants({
+      lastname: '',
+      firstname: '',
+      phone: '',
+      email: '',
+      arrivedAt: '',
+    })
+    // window.location.href = '/list'
   }
 
   return (
     <div style={registerStyle}>
       <h1 style={headerStyle}>S'enregister sur la liste présence</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={registerParticipant}>
         <div className="form-input">
           <label htmlFor="lastname">Nom</label>
           <input
             type="text"
-            value={particitants.lastname}
+            value={newParticipants.lastname}
             placeholder="Entrez votre nom"
             maxLength={15}
             onChange={({ target }) => {
-              setParticipants({ ...particitants, lastname: target.value })
+              setNewParticipants({ ...newParticipants, lastname: target.value })
             }}
           />
         </div>
@@ -54,10 +63,13 @@ export const RegisterForm = () => {
           <input
             type="text"
             placeholder="Entrez votre prénom"
-            value={particitants.firstname}
+            value={newParticipants.firstname}
             maxLength={15}
             onChange={({ target }) => {
-              setParticipants({ ...particitants, firstname: target.value })
+              setNewParticipants({
+                ...newParticipants,
+                firstname: target.value,
+              })
             }}
           />
         </div>
@@ -68,9 +80,9 @@ export const RegisterForm = () => {
             placeholder="Entrez votre numéro de téléphone"
             maxLength={10}
             pattern="[0-9]{10}"
-            value={particitants.phone}
+            value={newParticipants.phone}
             onChange={({ target }) => {
-              setParticipants({ ...particitants, phone: target.value })
+              setNewParticipants({ ...newParticipants, phone: target.value })
             }}
           />
         </div>
@@ -79,10 +91,10 @@ export const RegisterForm = () => {
           <input
             type="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            value={particitants.email}
+            value={newParticipants.email}
             placeholder="Entrez votre addresse email"
             onChange={({ target }) => {
-              setParticipants({ ...particitants, email: target.value })
+              setNewParticipants({ ...newParticipants, email: target.value })
             }}
           />
         </div>

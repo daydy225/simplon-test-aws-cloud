@@ -94,6 +94,7 @@ form {
 
 .form-input > input:focus {
   outline-offset: 2px;
+  outline: 2px solid rgb(0, 0, 0);
   border: 2px solid rgba(204, 0, 51, 0.8);
 }
 
@@ -110,6 +111,43 @@ form {
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
+
+.form-btn:hover {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
+.participants-table {
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 1.2rem;
+  border-collapse: collapse;
+}
+
+.participants-table thead {
+  background-color: #ce0033;
+  color: #fff;
+}
+
+.participants-table th {
+  padding: 0.5rem;
+  outline-offset: -4px;
+  outline: 2px solid #fff;
+}
+
+.participants-table tbody {
+  background-color: #e2e2e2;
+  color: #000;
+}
+
+.participants-table td {
+  padding: 0.5rem;
+  outline-offset: -4px;
+  text-align: center;
+  outline: 2px solid #fff;
+}
+
+/* ====== MEDIA QUERIES ====== */
 
 @media (max-width: 768px) {
   .app {
@@ -138,6 +176,31 @@ form {
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .form-input {
+    width: 20rem;
+  }
+
+  .form-input > label {
+    font-size: 1rem;
+  }
+
+  .form-input > input {
+    font-size: 0.8rem;
+  }
+
+  .form-btn {
+    font-size: 1rem;
+  }
+
+  .participants-table {
+    font-size: 0.6rem;
+  }
+  .participants-table th {
+    padding: 0.2rem;
+    outline-offset: -2px;
+    outline: 1px solid #fff;
   }
 }
