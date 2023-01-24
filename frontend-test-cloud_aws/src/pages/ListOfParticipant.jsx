@@ -16,7 +16,7 @@ export const ListOfParticipant = ({ listOfParticipants }) => {
   }
 
   const containerStyle = {
-    paddingTop: '1rem',
+    padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
